@@ -1,0 +1,1 @@
+#G:\develop\apache-jena-2.11.1\bat>riot.bat --validate G:\repositories\github\oslc-bs\trunk\validation\sources\mountain-bike.ttl

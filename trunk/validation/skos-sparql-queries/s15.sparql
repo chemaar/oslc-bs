@@ -1,0 +1,10 @@
+prefix skos:    <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?concept (COUNT(*) AS ?ntripleS) WHERE{
+	SELECT DISTINCT ?concept ?propLabel ?label ?lang WHERE{
+		?concept a skos:Concept.
+		?concept ?propLabel ?label.
+		FILTER( (?propLabel=skos:prefLabel) || (?propLabel=skos:altLabel)|| (?propLabel=skos:hiddenLabel)).
+		bind (lang(?label) as ?lang).
+	}
+} GROUP BY ?concept

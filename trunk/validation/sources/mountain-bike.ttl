@@ -1,0 +1,245 @@
+@prefix void:    <http://rdfs.org/ns/void#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix org:    <http://www.w3.org/ns/org#> .
+@prefix v: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dbpedia-res: <http://dbpedia.org/resource/> .
+@prefix pbs: <http://purl.org/krgroup/pbs/> .
+@prefix pbs-onto: <http://purl.org/krgroup/pbs/ontology/> .
+@prefix pbs-res: <http://purl.org/krgroup/pbs/p1/resource/> .
+
+pbs-res:ds     a       void:Dataset , skos:ConceptScheme ;
+      rdfs:label "Product Breakdown structure"@en ;
+      dcterms:contributor  <http://www.josemalvarez.es/foaf.rdf#me> ;	
+      dcterms:description "Demo PBS" ;
+      dcterms:license <http://opendatacommons.org/licenses/by/1.0/> ;
+      dcterms:modified "2014-05-20"^^xsd:date ;
+      void:exampleResource pbs-res:Mountain_Bike;
+      void:uriRegexPattern  "http://purl.org/krgroup/pbs/p1/resource/.+" ;
+      void:vocabulary skos: , dcterms: , rdfs: ;
+      skos:hasTopConcept  pbs-res:Mountain_Bike;
+      foaf:homepage <http://thereusecompany.com> .
+      
+pbs-res:Mountain_Bike a skos:Concept;
+	rdfs:label "Mountain Bike"@en;
+    dcterms:identifier "1"^^xsd:string ;  	
+	skos:prefLabel "Mountain_Bike"@en;
+	skos:prefLabel "Bicicleta de montaña"@es;
+	skos:altLabel "Bike"@en;
+	skos:altLabel "Bicycle"@en;
+	skos:notation "1"^^xsd:string ;
+	skos:changeNote "An example of change note."@en;
+  	skos:editorialNote "An example of editorial note"@en;
+	skos:historyNote "An example of history note"@en;
+	skos:scopeNote "An example of scope note"@en;
+	skos:closeMatch dbpedia-res:Mountain_Bike;
+	skos:inScheme pbs-res:ds .
+	
+	
+#Front Set
+
+pbs-res:Front_Set a skos:Concept;
+    dcterms:identifier "2"^^xsd:string ;  	
+	skos:prefLabel "Front Set"@en;
+	skos:broader pbs-res:Mountain_Bike ;
+	skos:inScheme pbs-res:ds .
+	
+pbs-res:Handlebar_grip a skos:Concept;
+    dcterms:identifier "3"^^xsd:string ;  	
+	skos:prefLabel "Handlebar grip"@en;
+	skos:broader pbs-res:Front_Set  ;
+	skos:inScheme pbs-res:ds .
+	
+pbs-res:Head_Tube a skos:Concept;
+    dcterms:identifier "4"^^xsd:string ;  	
+	skos:prefLabel "Head Tube"@en;
+	skos:broader pbs-res:Front_Set  ;
+	skos:inScheme pbs-res:ds .
+	
+pbs-res:Shock_absorber a skos:Concept;
+    dcterms:identifier "5"^^xsd:string ;  	
+	skos:prefLabel "Shock absorber"@en;
+	skos:broader pbs-res:Front_Set  ;
+	skos:inScheme pbs-res:ds .
+	
+pbs-res:Front_Brakes a skos:Concept;
+    dcterms:identifier "6"^^xsd:string ;  	
+	skos:prefLabel "Front Brakes"@en;
+	skos:broader pbs-res:Front_Set  ;
+	skos:inScheme pbs-res:ds .
+	
+pbs-res:Fork a skos:Concept;
+    dcterms:identifier "7"^^xsd:string ;  	
+	skos:prefLabel "Fork"@en;
+	skos:broader pbs-res:Front_Set  ;
+	skos:inScheme pbs-res:ds .
+	
+#Wheel
+
+pbs-res:Wheel a skos:Concept;
+    dcterms:identifier "8"^^xsd:string ;  	
+	skos:prefLabel "Wheel"@en;
+	skos:broader pbs-res:Mountain_Bike ;
+	skos:inScheme pbs-res:ds .
+	
+pbs-res:Spoke a skos:Concept;
+    dcterms:identifier "9"^^xsd:string ;  	
+	skos:prefLabel "Spoke"@en;
+	skos:broader pbs-res:Wheel ;
+	skos:inScheme pbs-res:ds .
+	
+pbs-res:Hub a skos:Concept;
+    dcterms:identifier "10"^^xsd:string ;  	
+	skos:prefLabel "Hub"@en;
+	skos:broader pbs-res:Wheel ;
+	skos:inScheme pbs-res:ds .
+	
+pbs-res:Rim a skos:Concept;
+    dcterms:identifier "11"^^xsd:string ;  	
+	skos:prefLabel "Rim"@en;
+	skos:broader pbs-res:Wheel ;
+	skos:inScheme pbs-res:ds .	
+	
+	
+pbs-res:Tire a skos:Concept;
+    dcterms:identifier "12"^^xsd:string ;  	
+	skos:prefLabel "Tire"@en;
+	skos:broader pbs-res:Wheel ;
+	skos:inScheme pbs-res:ds .
+	
+		
+pbs-res:Valve a skos:Concept;
+    dcterms:identifier "13"^^xsd:string ;  	
+	skos:prefLabel "Valve"@en;
+	skos:broader pbs-res:Wheel ;
+	skos:inScheme pbs-res:ds .
+	
+#Pedal
+
+pbs-res:Pedal a skos:Concept;
+    dcterms:identifier "14"^^xsd:string ;  	
+	skos:prefLabel "Pedal"@en;
+	skos:broader pbs-res:Mountain_Bike ;
+	skos:inScheme pbs-res:ds .
+	
+#Crank arm
+
+pbs-res:Crank_arm a skos:Concept;
+    dcterms:identifier "15"^^xsd:string ;  	
+	skos:prefLabel "Crank arm"@en;
+	skos:broader pbs-res:Mountain_Bike ;
+	skos:inScheme pbs-res:ds .
+	
+	
+#Front derailleur
+
+pbs-res:Front_derailleur a skos:Concept;
+    dcterms:identifier "16"^^xsd:string ;  	
+	skos:prefLabel "Front derailleur"@en;
+	skos:broader pbs-res:Mountain_Bike ;
+	skos:inScheme pbs-res:ds .
+	
+	
+#Chain
+
+pbs-res:Chain a skos:Concept;
+    dcterms:identifier "17"^^xsd:string ;  	
+	skos:prefLabel "Chain"@en;
+	skos:broader pbs-res:Mountain_Bike ;
+	skos:inScheme pbs-res:ds .
+	
+	
+pbs-res:Chain_rings a skos:Concept;
+    dcterms:identifier "18"^^xsd:string ;  	
+	skos:prefLabel "Chain rings"@en;
+	skos:broader pbs-res:Mountain_Bike ;
+	skos:inScheme pbs-res:ds .
+	
+	
+pbs-res:Rear_brakes a skos:Concept;
+    dcterms:identifier "19"^^xsd:string ;  	
+	skos:prefLabel "Rear brakes"@en;
+	skos:broader pbs-res:Mountain_Bike ;
+	skos:inScheme pbs-res:ds .
+	
+pbs-res:Cogset a skos:Concept;
+    dcterms:identifier "20"^^xsd:string ;  	
+	skos:prefLabel "Cogset"@en;
+	skos:broader pbs-res:Mountain_Bike ;
+	skos:inScheme pbs-res:ds .
+	
+	
+pbs-res:Rear_derailleur a skos:Concept;
+    dcterms:identifier "21"^^xsd:string ;  	
+	skos:prefLabel "Rear derailleur"@en;
+	skos:broader pbs-res:Mountain_Bike ;
+	skos:inScheme pbs-res:ds .
+	
+#Frame
+	
+pbs-res:Frame a skos:Concept;
+    dcterms:identifier "22"^^xsd:string ;  	
+	skos:prefLabel "Frame"@en;
+	skos:broader pbs-res:Mountain_Bike ;
+	skos:inScheme pbs-res:ds .
+	
+	
+pbs-res:Top_Tube a skos:Concept;
+    dcterms:identifier "23"^^xsd:string ;  	
+	skos:prefLabel "Top Tube"@en;
+	skos:broader pbs-res:Frame ;
+	skos:inScheme pbs-res:ds .
+	
+	
+pbs-res:Down_Tube a skos:Concept;
+    dcterms:identifier "24"^^xsd:string ;  	
+	skos:prefLabel "Down Tube"@en;
+	skos:broader pbs-res:Frame ;
+	skos:inScheme pbs-res:ds .
+	
+	
+pbs-res:Seat_Tube a skos:Concept;
+    dcterms:identifier "25"^^xsd:string ;  	
+	skos:prefLabel "Seat Tube"@en;
+	skos:broader pbs-res:Frame ;
+	skos:inScheme pbs-res:ds .
+	
+	
+pbs-res:Seat_Stay a skos:Concept;
+    dcterms:identifier "26"^^xsd:string ;  	
+	skos:prefLabel "Seat Stay"@en;
+	skos:broader pbs-res:Frame ;
+	skos:inScheme pbs-res:ds .
+	
+pbs-res:Chain_Stay a skos:Concept;
+    dcterms:identifier "27"^^xsd:string ;  	
+	skos:prefLabel "Chain Stay"@en;
+	skos:broader pbs-res:Frame ;
+	skos:inScheme pbs-res:ds .
+	
+	
+pbs-res:Saddle_area a skos:Concept;
+    dcterms:identifier "28"^^xsd:string ;  	
+	skos:prefLabel "Saddle area"@en;
+	skos:broader pbs-res:Mountain_Bike ;
+	skos:inScheme pbs-res:ds .
+	
+	
+pbs-res:Saddle a skos:Concept;
+    dcterms:identifier "29"^^xsd:string ;  	
+	skos:prefLabel "Saddle"@en;
+	skos:broader pbs-res:Saddle_area ;
+	skos:inScheme pbs-res:ds .
+	
+	
+pbs-res:Seat_post a skos:Concept;
+    dcterms:identifier "30"^^xsd:string ;  	
+	skos:prefLabel "Seat post"@en;
+	skos:broader pbs-res:Saddle_area ;
+	skos:inScheme pbs-res:ds .
+	
