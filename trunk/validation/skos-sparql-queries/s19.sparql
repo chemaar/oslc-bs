@@ -1,0 +1,18 @@
+prefix skos:    <http://www.w3.org/2004/02/skos/core#>
+ASK  where{
+	{
+		SELECT (count(distinct ?resource) as ?resources) WHERE{
+				 ?resource ?semanticProperty ?relatedConcept.
+				 FILTER (?semanticProperty in (skos:semanticRelation,skos:broader,skos:narrower,skos:related,skos:broaderTransitive,skos:narrowerTransitive))
+		}
+	}
+	
+	{
+		SELECT (count(?concept) as ?concepts) WHERE{
+				 ?concept a skos:Concept.				
+		}
+	}
+	
+	FILTER (?resources <= ?concepts)
+}
+

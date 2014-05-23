@@ -1,0 +1,21 @@
+prefix skos:    <http://www.w3.org/2004/02/skos/core#>
+ask where{
+	{
+		SELECT (count(?relatedConcept) as ?relatedConcepts) WHERE{
+				 ?resource ?semanticProperty ?relatedConcept.
+				 FILTER (?semanticProperty in (skos:semanticRelation,skos:broader,skos:narrower,skos:related,skos:broaderTransitive,skos:narrowerTransitive))
+				 ?relatedConcept a ?type.
+				 FILTER (?type = skos:Concept).
+		}
+	}
+	
+	{
+		SELECT (count(?relatedConcept) as ?potentialRelatedConcepts) WHERE{
+				 ?resource ?semanticProperty ?relatedConcept.
+				 FILTER (?semanticProperty in (skos:semanticRelation,skos:broader,skos:narrower,skos:related,skos:broaderTransitive,skos:narrowerTransitive))
+		}
+	}
+	
+FILTER (?relatedConcepts = ?potentialRelatedConcepts).
+}
+
